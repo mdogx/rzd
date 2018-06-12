@@ -7,27 +7,23 @@ import tk.mdogx.rzd.pages.PassengersPage;
 
 public class Test1 {
 
-    public WebDriver driver;
+    private WebDriver driver;
 
     @BeforeClass
     public void setUp() {
-        System.out.println(">>> Launching " + Utils.getBrowser() + " browser.");
+        System.out.println(">>> Launching " + Utils.BROWSER + " browser.");
         driver = Utils.getDriver();
         driver.manage().window().maximize();
     }
 
     @Test
     public void countAvailablePlaces() {
-        driver.get(Utils.getBaseurl());
-        System.out.println(">>> Open " + Utils.getBaseurl() + " page.");
+        Utils.openPage(Utils.BASEURL);
         PassengersPage page = new PassengersPage(driver);
-        page.enterDate("Июнь", "16")
-                .enterRouteFromText("Москва")
-                .enterRouteToText("Тула")
-                .pressSubmit()
-                .waitUntilPageLoaded()
-                .selectTrain("743В", "Купе")
-                .countAvailablePlaces();
+        page.enterRouteDate("Июнь", "16")
+                .enterRoute("Москва", "Тула")
+                .pressRouteSubmit()
+                .countAvailvablePlacesInTrain("141Ч", "Купе");
     }
 
     @AfterClass
@@ -37,5 +33,4 @@ public class Test1 {
             driver.quit();
         }
     }
-
 }
