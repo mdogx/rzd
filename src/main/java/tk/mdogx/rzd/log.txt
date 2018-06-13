@@ -1,0 +1,95 @@
+Test started at 2018/06/13 21:36:34 on chrome
+Select route date Июнь 16
+Select route from Москва to Тула
+Select train293А and cars type Купе
+Total available 56 seat in train.
+> In car № 2 is available 22 seat(s).
+> In car № 3 is available 11 seat(s).
+> In car № 4 is available 3 seat(s).
+> In car № 8 is available 0 seat(s) and 1 place(s) for disabled people.
+> In car № 8 is available 0 seat(s) and 2 place(s) for disabled people.
+> In car № 5 is available 1 seat(s).
+> In car № 6 is available 8 seat(s).
+> In car № 7 is available 4 seat(s).
+
+Test started at 2018/06/13 21:38:46 on chrome.
+Select route date Июнь 16.
+Select route from Москва to Тула.
+Select train 293А and cars type Купе.
+Total available 56 seat in train.
+> In car № 2 is available 22 seat(s).
+> In car № 3 is available 11 seat(s).
+> In car № 4 is available 3 seat(s).
+> In car № 8 is available 0 seat(s) and 1 place(s) for disabled people.
+> In car № 8 is available 0 seat(s) and 2 place(s) for disabled people.
+> In car № 5 is available 1 seat(s).
+> In car № 6 is available 8 seat(s).
+> In car № 7 is available 4 seat(s).
+
+Test started at 2018/06/13 21:42:34 on chrome.
+Select route date Июнь 16.
+Select route from Москва to Тула.
+Select train 293А and cars type Купе.
+Total available 56 seat in selected train.
+> In car № 2 is available 22 seat(s).
+> In car № 3 is available 11 seat(s).
+> In car № 4 is available 3 seat(s).
+> In car № 8 is available 0 seat(s) and 1 place(s) for disabled people.
+> In car № 8 is available 0 seat(s) and 2 place(s) for disabled people.
+> In car № 5 is available 1 seat(s).
+> In car № 6 is available 8 seat(s).
+> In car № 7 is available 4 seat(s).
+
+Test started at 2018/06/13 21:44:05 on chrome.
+Select route date Июнь 16.
+Select route from Москва to Тула.
+Select train 293А and cars type Купе.
+Total available 56 seat in selected train.
+
+Test started at 2018/06/13 21:44:55 on chrome.
+Select route date Июнь 16.
+Select route from Москва to Тула.
+Select train 293А and cars type Купе.
+Total available 56 seat in selected train.
+> In car № 2 is available 22 seat(s).
+> In car № 3 is available 11 seat(s).
+> In car № 4 is available 3 seat(s).
+> In car № 8 is available 0 seat(s) and 1 place(s) for disabled people.
+> In car № 8 is available 0 seat(s) and 2 place(s) for disabled people.
+> In car № 5 is available 1 seat(s).
+> In car № 6 is available 8 seat(s).
+> In car № 7 is available 4 seat(s).
+Select train 741А and cars type Купе.
+
+Test started at 2018/06/13 21:45:54 on chrome.
+Select route date Июнь 16.
+Select route from Москва to Тула.
+Select train 741А and cars type Купе.
+Total available 17 seat in selected train.
+> In car № 7 is available 2 seat(s).
+> In car № 8 is available 5 seat(s).
+> In car № 9 is available 6 seat(s).
+> In car № 10 is available 4 seat(s).
+
+Test started at 2018/06/13 21:46:39 on chrome.
+Select route date Июль 26.
+Select route from Москва to Тула.
+Select train 741А and cars type Купе.
+Total available 94 seat in selected train.
+> In car № 7 is available 2 seat(s).
+> In car № 7 is available 3 seat(s).
+> In car № 8 is available 23 seat(s).
+> In car № 9 is available 30 seat(s).
+> In car № 10 is available 36 seat(s).
+
+Test started at 2018/06/13 21:51:51 on firefox.
+Select route date Июль 26.
+Select route from Москва to Тула.
+Select train 741А and cars type Купе.
+Total available 94 seat in selected train.
+> In car № 7 is available 2 seat(s).
+> In car № 7 is available 3 seat(s).
+> In car № 8 is available 23 seat(s).
+> In car № 9 is available 30 seat(s).
+> In car № 10 is available 36 seat(s).
+

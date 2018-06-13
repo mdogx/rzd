@@ -5,6 +5,10 @@ import org.testng.annotations.Test;
 import tk.mdogx.rzd.Utils;
 import tk.mdogx.rzd.pages.PassengersPage;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class Test1 {
 
     private WebDriver driver;
@@ -12,6 +16,9 @@ public class Test1 {
     @BeforeClass
     public void setUp() {
         System.out.println(">>> Launching " + Utils.BROWSER + " browser.");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        Utils.addLogs("Test started at " + dateFormat.format(date) + " on " + Utils.BROWSER + ".");
         driver = Utils.getDriver();
         driver.manage().window().maximize();
     }
@@ -20,10 +27,12 @@ public class Test1 {
     public void countAvailablePlaces() {
         Utils.openPage(Utils.BASEURL);
         PassengersPage page = new PassengersPage(driver);
-        page.enterRouteDate("Июнь", "16")
+        page.enterRouteDate("Июль", "26")
                 .enterRoute("Москва", "Тула")
                 .pressRouteSubmit()
-                .countAvailvablePlacesInTrain("141Ч", "Купе");
+                .selectTrain("741А", "Купе")
+                .countVacantSeatsOfSelectedTrain()
+                .countVacantSeatsInAllCarsOfSelectedTrain();
     }
 
     @AfterClass
@@ -31,6 +40,7 @@ public class Test1 {
         if (driver != null) {
             System.out.println(">>> Close browser.");
             driver.quit();
+            Utils.addLogs("");
         }
     }
 }

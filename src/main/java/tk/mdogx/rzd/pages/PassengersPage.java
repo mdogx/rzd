@@ -2,19 +2,16 @@ package tk.mdogx.rzd.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import tk.mdogx.rzd.Utils;
 
 public class PassengersPage extends BasePage {
-    String title = "Пассажирам";
-    By routeFromTextLocator = By.id("name0");
-    By routeToTextLocator = By.id("name1");
-    By submitButtonLocator = By.id("Submit");
-    By calendarButtonLocator = By.xpath("//div[@class='box-form__datetime__calendar sh_calendar']");
-    By calendarLocator = By.id("ticketbuyforma_horizontalTwo");
-    String dateLocatorTemplate = "//div[@class='month_wrap' and div[@class='month_title']/span[contains(text(),'<month>')]]//span[contains(text(),'<day>')]";
+    private String title = "Пассажирам";
+    private By routeFromTextLocator = By.id("name0");
+    private By routeToTextLocator = By.id("name1");
+    private By submitButtonLocator = By.id("Submit");
+    private By calendarButtonLocator = By.xpath("//div[@class='box-form__datetime__calendar sh_calendar']");
+    private String dateLocatorTemplate = "//div[@class='month_wrap' and div[@class='month_title']/span[contains(text(),'<month>')]]//span[contains(text(),'<day>')]";
 
     private final WebDriver driver;
 
@@ -22,26 +19,32 @@ public class PassengersPage extends BasePage {
         super(driver);
         this.driver = driver;
 
-        Assert.assertEquals(title,driver.getTitle(),">>> Wrong page title!");
+        Assert.assertEquals(title, driver.getTitle(), ">>> Wrong page title!");
     }
 
-    public PassengersPage enterRouteFromText(String s) {
-        driver.findElement(routeFromTextLocator).sendKeys(s);
-        System.out.println(">>> Select route from " + s + ".");
+    public PassengersPage enterRoute(String from, String to) {
+        enterRouteFromText(from);
+        enterRouteToText(to);
+        Utils.addLogs("Select route from " + from + " to " + to + ".");
         return this;
     }
 
-    public PassengersPage enterRouteToText(String s) {
-        driver.findElement(routeToTextLocator).sendKeys(s);
-        System.out.println(">>> Select route to " + s + ".");
+    public PassengersPage enterRouteFromText(String from) {
+        driver.findElement(routeFromTextLocator).sendKeys(from);
         return this;
     }
 
-    public PassengersPage enterDate(String day, String month) {
+    public PassengersPage enterRouteToText(String to) {
+        driver.findElement(routeToTextLocator).sendKeys(to);
+        return this;
+    }
+
+    public PassengersPage enterRouteDate(String day, String month) {
         driver.findElement(calendarButtonLocator).click();
-        WebDriverWait wait = new WebDriverWait(driver, Utils.getTimeout(), 1000);
-        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(getDateLocator(day, month)))).click();
-        System.out.println(">>> Select trains for " + day + " " + month + ".");
+        By dateLocator = getDateLocator(day, month);
+        waitUntilElementIsVisibility(dateLocator);
+        driver.findElement(dateLocator).click();
+        Utils.addLogs("Select route date " + day + " " + month + ".");
         return this;
     }
 
@@ -49,21 +52,12 @@ public class PassengersPage extends BasePage {
         String dateLocatorString = dateLocatorTemplate;
         dateLocatorString = dateLocatorString.replaceAll("<month>", month);
         dateLocatorString = dateLocatorString.replaceAll("<day>", day);
-        By dateLocator = By.xpath(dateLocatorString);
-        return dateLocator;
+        return By.xpath(dateLocatorString);
     }
 
-    public boolean calendarIsVisibility() {
-        boolean result = false;
-        result = driver.findElement(calendarLocator).isDisplayed();
-        return result;
-    }
-
-    public SchedulePage pressSubmit() {
-        WebDriverWait wait = new WebDriverWait(driver, Utils.getTimeout(), 1000);
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(submitButtonLocator)));
+    public SchedulePage pressRouteSubmit() {
+        waitUntilElementIsVisibility(submitButtonLocator);
         driver.findElement(submitButtonLocator).click();
-        System.out.println(">>> Open train schedule.");
         return new SchedulePage(driver);
     }
 }
